@@ -3,8 +3,8 @@ import type { Breed } from './breedTypes';
 import axiosClient from '@/api/axiosClient';
 
 export const queryFn = async (): Promise<Breed[]> => {
-    const response = await axiosClient.get<{ data: Breed[] }>('/breeds');
-    return response.data.data;
+    const response = await axiosClient.get<Breed[]>('/breeds');
+    return response.data;
 };
 
 export function useBreeds() {
