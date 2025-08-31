@@ -11,6 +11,6 @@ export function useBreeds() {
     return useQuery<Breed[], Error>({
         queryKey: ['breeds'],
         queryFn,
-        staleTime: 1000 * 60 * 15,
+        staleTime: 1000 * 60 * 15, // 15 mins
     });
 }
