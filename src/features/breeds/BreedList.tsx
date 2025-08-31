@@ -15,5 +15,5 @@ export default function BreedList() {
         return <p>No breeds found.</p>;
     }
     const item = breeds[0];
-    return <span>{item.id}</span>;
+    return <span className="text-sky-400">{item.id}</span>;
 }
