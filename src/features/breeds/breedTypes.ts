@@ -1,19 +1,24 @@
-export interface LifeSpan {
-    min: number;
-    max: number;
-}
-
-export interface BreedAttributes {
+export type Breed = {
+    id: number;
     name: string;
-    description: string;
-    hypoallergenic: boolean;
-    life: LifeSpan;
-    male_weight: LifeSpan;
-    female_weight: LifeSpan;
-}
-
-export interface Breed {
-    id: string;
-    type: 'breed';
-    attributes: BreedAttributes;
-}
+    country_code?: string;
+    bred_for?: string;
+    breed_group?: string;
+    life_span?: string;
+    temperament?: string;
+    reference_image_id?: string;
+    weight: {
+        imperial: string;
+        metric: string;
+    };
+    height: {
+        imperial: string;
+        metric: string;
+    };
+    image?: {
+        id: string;
+        width: number;
+        height: number;
+        url: string;
+    };
+};

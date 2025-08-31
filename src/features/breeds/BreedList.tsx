@@ -16,10 +16,10 @@ export default function BreedList() {
         return <p>No breeds found.</p>;
     }
     return (
-        <>
+        <div className="mx-auto grid gap-1 sm:grid-cols-2 md:grid-cols-3">
             {data.map(item => (
-                <BreedCard name={item.name} />
+                <BreedCard breed={item} />
             ))}
-        </>
+        </div>
     );
 }
