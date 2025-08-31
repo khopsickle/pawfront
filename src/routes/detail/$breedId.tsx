@@ -1,6 +1,6 @@
 import BreedDetail from '@/features/breeds/BreedDetail';
 import { createFileRoute } from '@tanstack/react-router';
 
-export const Route = createFileRoute('/detail')({
+export const Route = createFileRoute('/detail/$breedId')({
     component: BreedDetail,
 });

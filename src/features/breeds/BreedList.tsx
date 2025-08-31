@@ -1,5 +1,6 @@
 import BreedCard from './BreedCard';
 import { useBreeds } from './dogAPI';
+import { Link } from '@tanstack/react-router';
 
 export default function BreedList() {
     const { data, isLoading, isError, error } = useBreeds();
@@ -18,7 +19,14 @@ export default function BreedList() {
     return (
         <div className="mx-auto grid gap-1 sm:grid-cols-2 md:grid-cols-3">
             {data.map(item => (
-                <BreedCard breed={item} />
+                <Link
+                    key={item.id}
+                    to="/detail/$breedId"
+                    params={{ breedId: String(item.id) }}
+                    state={{ breed: item }}
+                >
+                    <BreedCard breed={item} />
+                </Link>
             ))}
         </div>
     );
