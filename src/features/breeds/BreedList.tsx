@@ -18,16 +18,19 @@ export default function BreedList() {
     }
 
     return (
-        <div className="mx-auto grid gap-1 sm:grid-cols-2 md:grid-cols-3">
-            {data.map(breed => (
-                <Link
-                    key={breed.id}
-                    to="/detail/$breedId"
-                    params={{ breedId: String(breed.id) }}
-                >
-                    <BreedCard breed={breed} />
-                </Link>
-            ))}
-        </div>
+        <>
+            <h1 className="mb-6 text-2xl font-bold">Dog Breeds</h1>
+            <div className="mx-auto grid gap-3 sm:grid-cols-2 md:grid-cols-3">
+                {data.map(breed => (
+                    <Link
+                        key={breed.id}
+                        to="/detail/$breedId"
+                        params={{ breedId: String(breed.id) }}
+                    >
+                        <BreedCard breed={breed} />
+                    </Link>
+                ))}
+            </div>
+        </>
     );
 }
