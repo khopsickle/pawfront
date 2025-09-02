@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react';
 
-export default function Container({ children }: { children: ReactNode }) {
+type ContainerProps = { children: ReactNode };
+
+export default function Container({ children }: ContainerProps) {
     return <main className="container mx-auto my-8">{children}</main>;
 }

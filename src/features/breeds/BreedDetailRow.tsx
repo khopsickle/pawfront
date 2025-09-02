@@ -1,10 +1,8 @@
-export default function BreedDetailRow({
-    label,
-    value,
-}: {
+type BreedDetailRowProps = {
     label: string;
     value?: string;
-}) {
+};
+export default function BreedDetailRow({ label, value }: BreedDetailRowProps) {
     if (!value) return null;
     return (
         <p>

@@ -2,7 +2,9 @@ import BlockQuote from '@/components/BlockQuote';
 import type { Breed } from './breedTypes';
 import TextChip from '@/components/TextChip';
 
-export default function BreedCard({ breed }: { breed: Breed }) {
+type BreedCardProps = { breed: Breed };
+
+export default function BreedCard({ breed }: BreedCardProps) {
     return (
         <div
             className={`flex min-h-48 flex-col rounded-lg bg-white p-7 shadow-md outline outline-black/5`}
