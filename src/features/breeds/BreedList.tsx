@@ -16,16 +16,16 @@ export default function BreedList() {
     if (!data || data.length === 0) {
         return <p>No breeds found.</p>;
     }
+
     return (
         <div className="mx-auto grid gap-1 sm:grid-cols-2 md:grid-cols-3">
-            {data.map(item => (
+            {data.map(breed => (
                 <Link
-                    key={item.id}
+                    key={breed.id}
                     to="/detail/$breedId"
-                    params={{ breedId: String(item.id) }}
-                    state={{ breed: item }}
+                    params={{ breedId: String(breed.id) }}
                 >
-                    <BreedCard breed={item} />
+                    <BreedCard breed={breed} />
                 </Link>
             ))}
         </div>

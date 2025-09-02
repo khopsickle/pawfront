@@ -1,13 +1,20 @@
-import { useRouterState, useParams } from '@tanstack/react-router';
-import type { Breed } from './breedTypes';
+import { useParams } from '@tanstack/react-router';
+import { useBreedById } from './dogAPI';
 
 export default function BreedDetail() {
     const { breedId } = useParams({ from: '/detail/$breedId' });
-    const breed = useRouterState<{ breed?: Breed }>({
-        select: state => state.location.state?.breed,
-    });
+    const { data: breed, isLoading } = useBreedById(breedId);
+
+    if (isLoading) {
+        return <p>Loading breeds...</p>;
+    }
+
     if (!breed) {
         return <p>No breed data for {breedId}.</p>;
     }
-    return <span>detail {breed.name}</span>;
+    return (
+        <p>
+            detail <span className="text-sky-400">{breed.name}</span>
+        </p>
+    );
 }

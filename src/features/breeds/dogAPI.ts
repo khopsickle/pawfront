@@ -14,3 +14,13 @@ export function useBreeds() {
         staleTime: 1000 * 60 * 15, // 15 mins
     });
 }
+
+export function useBreedById(breedId: string) {
+    return useQuery<Breed[], Error, Breed | undefined>({
+        // allowing undefined for handling in component
+        queryKey: ['breeds'],
+        queryFn: queryFn,
+        select: breeds => breeds.find(breed => String(breed.id) === breedId),
+        staleTime: 1000 * 60 * 15, // 15 mins
+    });
+}
