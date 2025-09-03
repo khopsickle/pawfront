@@ -10,6 +10,8 @@ export default function TextChip({ text }: TextChipProps) {
     return (
         <span
             className={`rounded-full px-2 py-1 text-xs font-bold ${colorClass}`}
+            role="status"
+            aria-label={`Breed group: ${displayText}`}
         >
             {displayText}
         </span>
