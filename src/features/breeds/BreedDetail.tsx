@@ -2,6 +2,7 @@ import { useParams } from '@tanstack/react-router';
 import { useBreedById } from './dogAPI';
 import BreedDetailRow from './BreedDetailRow';
 import type { Breed } from './breedTypes';
+import CardSkeleton from '@/components/CardSkeleton';
 
 const breedDetailFields = (breed: Breed) => [
     { label: 'Country of origin', value: breed.country_code },
@@ -22,11 +23,19 @@ export default function BreedDetail() {
     const { data: breed, isLoading } = useBreedById(breedId);
 
     if (isLoading) {
-        return <p>Loading breeds...</p>;
+        return (
+            <div className="mx-auto h-96 w-1/2 animate-pulse rounded-lg bg-gray-300 pt-50">
+                <CardSkeleton />
+            </div>
+        );
     }
 
     if (!breed) {
-        return <p>No breed data for {breedId}.</p>;
+        return (
+            <div className="text-center font-bold text-red-600">
+                No breed data for breed ID: {breedId}.
+            </div>
+        );
     }
     return (
         <>

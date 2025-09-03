@@ -1,26 +1,43 @@
 import BreedCard from './BreedCard';
+import Grid from '../../components/Grid';
 import { useBreeds } from './dogAPI';
 import { Link } from '@tanstack/react-router';
+import CardSkeleton from '@/components/CardSkeleton';
 
 export default function BreedList() {
     const { data, isLoading, isError, error } = useBreeds();
 
     if (isLoading) {
-        return <p>Loading breeds...</p>;
+        return (
+            <Grid>
+                {[...Array(6)].map((_, i) => (
+                    <CardSkeleton key={i} />
+                ))}
+            </Grid>
+        );
     }
 
     if (isError) {
-        return <p>Failed to load dog breeds: {(error as Error).message}</p>;
+        return (
+            <div className="text-center text-red-600">
+                <span className="font-bold">Failed to load:</span>{' '}
+                {error?.message}
+            </div>
+        );
     }
 
     if (!data || data.length === 0) {
-        return <p>No breeds found.</p>;
+        return (
+            <div className="text-center font-bold text-red-600">
+                No breeds found.
+            </div>
+        );
     }
 
     return (
         <>
             <h1 className="mb-6 text-2xl font-bold">Dog Breeds</h1>
-            <div className="mx-auto grid gap-3 sm:grid-cols-2 md:grid-cols-3">
+            <Grid>
                 {data.map(breed => (
                     <Link
                         key={breed.id}
@@ -30,7 +47,7 @@ export default function BreedList() {
                         <BreedCard breed={breed} />
                     </Link>
                 ))}
-            </div>
+            </Grid>
         </>
     );
 }
