@@ -1,13 +1,23 @@
-const reportWebVitals = (onPerfEntry?: () => void) => {
-  if (onPerfEntry && onPerfEntry instanceof Function) {
-    import('web-vitals').then(({ onCLS, onINP, onFCP, onLCP, onTTFB }) => {
-      onCLS(onPerfEntry)
-      onINP(onPerfEntry)
-      onFCP(onPerfEntry)
-      onLCP(onPerfEntry)
-      onTTFB(onPerfEntry)
-    })
-  }
-}
+// Normally this would be integrated with external monitoring services
+// for tracking and alerting
+const reportWebVitals = (onPerfEntry?: (metric: any) => void) => {
+    const handleMetric = (metric: any) => {
+        // logging for development
+        console.log(`${metric.name}: ${metric.value}`);
 
-export default reportWebVitals
+        // custom handler, if provided
+        if (onPerfEntry) {
+            onPerfEntry(metric);
+        }
+    };
+
+    import('web-vitals').then(({ onCLS, onINP, onFCP, onLCP, onTTFB }) => {
+        onCLS(handleMetric);
+        onINP(handleMetric);
+        onFCP(handleMetric);
+        onLCP(handleMetric);
+        onTTFB(handleMetric);
+    });
+};
+
+export default reportWebVitals;
