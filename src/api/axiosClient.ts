@@ -1,16 +1,13 @@
 import axios from 'axios';
+import { getDogApiKey } from './getDogApiKey';
 
-const apiKey = import.meta.env.VITE_DOG_API_KEY;
-
-if (!apiKey) {
-    throw new Error('Missing VITE_DOG_API_KEY environment variable');
+export function createAxiosClient() {
+    return axios.create({
+        baseURL: 'https://api.thedogapi.com/v1',
+        headers: {
+            'x-api-key': getDogApiKey(),
+        },
+    });
 }
 
-const axiosClient = axios.create({
-    baseURL: 'https://api.thedogapi.com/v1',
-    headers: {
-        'x-api-key': apiKey,
-    },
-});
-
-export default axiosClient;
+export default createAxiosClient();
