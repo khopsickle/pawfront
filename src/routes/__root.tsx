@@ -8,6 +8,7 @@ import TanStackQueryDevtools from '../integrations/tanstack-query/devtools';
 
 import type { QueryClient } from '@tanstack/react-query';
 import Container from '@/components/Container';
+import ErrorBoundary from '@/components/ErrorBoundary';
 
 interface MyRouterContext {
     queryClient: QueryClient;
@@ -15,7 +16,7 @@ interface MyRouterContext {
 
 export const Route = createRootRouteWithContext<MyRouterContext>()({
     component: () => (
-        <>
+        <ErrorBoundary>
             <Header />
             <Container>
                 <Outlet />
@@ -32,6 +33,6 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
                     TanStackQueryDevtools,
                 ]}
             />
-        </>
+        </ErrorBoundary>
     ),
 });
