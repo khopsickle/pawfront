@@ -7,6 +7,7 @@ export const queryFn = async (): Promise<Breed[]> => {
     return response.data;
 };
 
+// Rate limiting or throttling retries
 export function useBreeds() {
     return useQuery<Breed[], Error>({
         queryKey: ['breeds'],
