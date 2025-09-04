@@ -18,6 +18,17 @@ const breedDetailFields = (breed: Breed) => [
     { label: 'Average lifespan', value: breed.life_span },
 ];
 
+/**
+ * BreedDetail Component
+ *
+ * Fetches and displays detailed information about a dog breed
+ * - extracts breedId from params
+ * - useBreedById hook to fetch data
+ * - displays loading skeleton while isLoading
+ * - displays error messsage on error
+ *
+ * @returns {JSX.Element}
+ */
 export default function BreedDetail() {
     const { breedId } = useParams({ from: '/detail/$breedId' });
     const { data: breed, isLoading } = useBreedById(breedId);
