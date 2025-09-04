@@ -4,6 +4,14 @@ type GridProps = {
     children: ReactNode;
 };
 
+/**
+ * Grid Component
+ *
+ * Layout component that puts child components in a grid
+ *
+ * @param {children}
+ * @returns {JSX.Element}
+ */
 export default function Grid({ children }: GridProps) {
     return (
         <>

@@ -2,6 +2,19 @@ import { BREED_GROUP_COLORS } from '@/features/breeds/breedTypes';
 
 type TextChipProps = { text?: string };
 
+/**
+ * TextChip
+ *
+ * Pill-shaped label with colors.
+ * - defaults to "Unknown"
+ * - maps breed group to colors const
+ *
+ * @param {string} text - display text and key matcher
+ * @returns {JSX.Element}
+ *
+ * Improvements:
+ * Extract breed group color/matching so TextChip is fully reusable.
+ */
 export default function TextChip({ text }: TextChipProps) {
     const displayText = text || 'Unknown';
     const key = displayText?.toLowerCase();

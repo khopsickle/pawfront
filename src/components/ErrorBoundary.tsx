@@ -9,6 +9,10 @@ type ErrorBoundaryState = {
     hasError: boolean;
 };
 
+/**
+ * ErrorBoundary component to catch runtime errors and display a fallback UI instead of crashing the app
+ *
+ */
 class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
     state: ErrorBoundaryState = { hasError: false };
 

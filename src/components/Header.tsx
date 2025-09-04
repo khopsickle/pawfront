@@ -1,5 +1,11 @@
 import { Link } from '@tanstack/react-router';
-
+/**
+ * Header Component
+ *
+ * Site navigation
+ *
+ * @returns {JSX.Element}
+ */
 export default function Header() {
     return (
         <header className="flex justify-between gap-2 bg-white p-4 shadow-md outline outline-black/5">

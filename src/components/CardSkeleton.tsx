@@ -1,3 +1,16 @@
+/**
+ * CardSkeleton Component
+ *
+ * Placeholder loading component.
+ * - pulsing grey boxes representing the actual content
+ * - `role="status"` announces the loading state to screen readers
+ * - `aria-label` provides a description of what's loading
+ *
+ * @returns {JSX.Element} A skeleton card
+ *
+ * Improvements:
+ * - make the aria-label desc a prop for reusability
+ */
 export default function CardSkeleton() {
     return (
         <div
