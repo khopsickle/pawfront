@@ -55,6 +55,8 @@ axe and user-event cover the main user interactions (clicking a card to open the
 
 E2E tests felt like overkill for such a small project, but would definitely be one of the first things to add if this were expanded.
 
+I also opted to write tests in .jsx/.js format to save some time fighting with TypeScript.
+
 ## Accessibility
 
 As a requirement, accessibility was mainly implemented through semantic HTML, aria-roles, and keyboard navigation.
